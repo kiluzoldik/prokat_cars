@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Навигационное меню -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
+        <a class="navbar-brand" href="index.html">AutoHouse</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="cars.html">Автомобили</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal">Сделать заказ</a>
+                </li>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog model-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Заявка на аренду автомобиля</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Форма с полями для заполнения -->
+                                <form method="post" action="/modal">
+                                    <!-- Блок "Общая информация" -->
+                                    <div class="form-group">
+                                        <label for="carMake">Марка автомобиля:</label>
+                                        <select class="form-control" id="carMake" name="mark">
+                                            <option>Выберите марку</option>
+                                            <option>Vag</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="carModel">Модель автомобиля:</label>
+                                        <select class="form-control" id="carModel" name="model">
+                                            <option>Выберите модель</option>
+                                            <option>Golf R</option>
+                                            <option>Passat CC</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="rentalStart">Срок аренды (с какого числа):</label>
+                                        <input type="date" class="form-control" id="rentalStart" name="date_in">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="rentalEnd">Срок аренды (по какое число):</label>
+                                        <input type="date" class="form-control" id="rentalEnd" name="date_out">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pickupLocation">Место выдачи автомобиля:</label>
+                                        <input type="text" class="form-control" id="pickupLocation" name="place_in">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="returnLocation">Место возврата автомобиля:</label>
+                                        <input type="text" class="form-control" id="returnLocation" name="place_out">
+                                    </div>
+                                    <!-- Блок для прикрепления документов -->
+                                    <div class="form-group">
+                                        <label>Прикрепите документы:</label><br>
+                                        <label>- Паспорт РФ (2-3 страницы)</label><br>
+                                        <label>- Паспорт РФ (5 страница)</label><br>
+                                        <label>- Водительское удостоверение (лицевая сторона)</label><br>
+                                        <label>- Водительское удостоверение (обратная сторона)</label>
+                                        <input type="file" class="form-control-file" id="passport1" name="passport1">
+                                        <input type="file" class="form-control-file" id="passport2" name="passport2">
+                                        <input type="file" class="form-control-file" id="driverLicense1"
+                                            name="driverLicense1">
+                                        <input type="file" class="form-control-file" id="driverLicense2"
+                                            name="driverLicense2">
+                                    </div>
+                                    <!-- Блок с контактной информацией -->
+                                    <div class="form-group">
+                                        <label for="fullName">ФИО:</label>
+                                        <input type="text" class="form-control" id="fullName" name="full_name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Адрес электронной почты:</label>
+                                        <input type="email" class="form-control" id="email" name="email_person">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Телефон:</label>
+                                        <input type="text" class="form-control" id="phone" name="phone_number">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="comment">Комментарий:</label>
+                                        <textarea class="form-control" id="comment" name="comments" rows="3"></textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <!-- Кнопка для отправки формы -->
+                                        <button type="submit" class="btn btn-primary">Оформить заявку</button>
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Закрыть</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="about_company.html">О компании</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</head>
+
+<body>
+    {% block content %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% endblock %}
+</body>
+
+</html>

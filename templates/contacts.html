@@ -1,0 +1,33 @@
+{% extends 'navigation.html' %}
+{% block title %}
+Контакты
+{% endblock %}
+{% block content %}
+{{ super() }}
+<div class="container">
+  <h1 class="mt-5">Контакты</h1>
+  
+  <div class="row contact-info">
+    <div class="col-md-6">
+      <h3>Телефон:</h3>
+      <p>+7 (999) 999-9999</p>
+      
+      <h3>Электронная почта:</h3>
+      <p>info@example.com</p>
+      
+      <h3>Адрес офиса:</h3>
+      <p>ул. Пушкина, д. 10, г. Волгоград, Россия</p>
+      
+      <h3>Режим работы:</h3>
+      <p>Пн-Пт: 9:00 - 18:00</p>
+    </div>
+    <div class="col-md-6">
+      <h3>Мы на карте:</h3>
+      <div class="map-container">
+        <!-- Ваш код для вставки карты, например, Google Maps -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1316.8152747098595!2d44.49740424518154!3d48.69342783331699!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sru!4v1713797204613!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
